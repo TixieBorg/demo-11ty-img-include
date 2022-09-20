@@ -1,0 +1,54 @@
+---
+layout: layouts/base.njk
+---
+
+<table>
+  <thead>
+    <tr>
+      <th>EleventyImg without include</th>
+      <th>EleventyImg without include</th>
+      <th>Same include wihout EleventyImg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Generate include's content, including the image</td>
+      <td>Doesn't generate the entire include</td>
+      <td>Generate include's content</td>
+    <tr>
+      {# Without include #}
+      <td>
+        <ul>
+          {%- for post in collections.posts %}
+            <li>
+              <div><a href="{{ post.url }}">{{ post.data.title }}</a></div>
+              <div style="width: 80%; max-width: 200px;">
+                {% postImage "img/martin-bennie-5Eobs8jiW-c-unsplash.jpg", post.data.title %}
+              </div>
+            </li>
+          {%- endfor %}
+        </ul>
+      </td>
+      {# Inside include #}
+      <td>
+        <ul>
+          {%- for post in collections.posts %}
+            <li>
+              {% include 'post-card.njk' %}
+            </li>
+          {%- endfor %}
+        </ul>
+      </td>
+      {# Same include wihout EleventyImg #}
+      <td>
+        <ul>
+          {%- for post in collections.posts %}
+            <li>
+              {% include 'post-card-text-only.njk' %}
+            </li>
+          {%- endfor %}
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

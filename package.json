@@ -1,0 +1,12 @@
+{
+  "name": "demo-11ty-img-include",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve",
+    "debug": "DEBUG=* npx @11ty/eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy-img": "^2.0.1"
+  }
+}
